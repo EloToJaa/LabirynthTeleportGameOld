@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     bool gamePaused = false;
     bool endGame = false;
     bool win = false;
+
     public int points = 0;
 
     public int redKey = 0;
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public void AddPoints(int points)
     {
+        Debug.Log("AddPoints");
         points += points;
     }
 

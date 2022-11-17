@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int rotationX, rotationY, rotationZ;
 
-    // Update is called once per frame
     void Update()
     {
         Rotation();
@@ -24,6 +19,6 @@ public class PickUp : MonoBehaviour
 
     public void Rotation()
     {
-        transform.Rotate(new Vector3(0, 5f, 0));
+        transform.Rotate(new Vector3(rotationX, rotationY, rotationZ));
     }
 }
