@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int points)
     {
         Debug.Log("AddPoints");
-        points += points;
+        this.points += points;
     }
 
     public void AddTime(int addTime)
