@@ -30,7 +30,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    void GenerateLabirynth()
+    public void GenerateLabirynth()
     {
         for(int x = 0; x < map.width; x++)
         {
@@ -39,6 +39,7 @@ public class LevelGenerator : MonoBehaviour
                 GenerateTile(x, z);
             }
         }
+        ColorTheChildren();
     }
 
     public void ColorTheChildren()
@@ -65,11 +66,11 @@ public class LevelGenerator : MonoBehaviour
                     {
                         if (Random.Range(1, 100) % 3 == 0)
                         {
-                            child.gameObject.GetComponent<Renderer>().material = material02;
+                            grandchild.gameObject.GetComponent<Renderer>().material = material02;
                         }
                         else
                         {
-                            child.gameObject.GetComponent<Renderer>().material = material01;
+                            grandchild.gameObject.GetComponent<Renderer>().material = material01;
                         }
                     }
                 }
