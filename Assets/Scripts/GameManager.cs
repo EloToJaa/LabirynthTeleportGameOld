@@ -16,6 +16,16 @@ public class GameManager : MonoBehaviour
     public int greenKey = 0;
     public int goldKey = 0;
 
+    public AudioClip resumeClip;
+    public AudioClip pauseClip;
+    public AudioClip winClip;
+    public AudioClip loseClip;
+
+    public MusicManager musicManager;
+    bool lessTime = false;
+
+    AudioSource audioSource;
+
     public void AddPoints(int points)
     {
         this.points += points;
@@ -65,6 +75,12 @@ public class GameManager : MonoBehaviour
             gameManager = this;
         }
 
+        if(timeToEnd <= 0)
+        {
+            timeToEnd = 100;
+        }
+
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating("Stopper", 2, 1);
     }
 
@@ -74,10 +90,15 @@ public class GameManager : MonoBehaviour
         PickUpCheck();
     }
 
+    public void PlayClip(AudioClip playClip)
+    {
+        audioSource.clip = playClip;
+        audioSource.Play();
+    }
+
     void Stopper()
     {
         timeToEnd--;
-        //Debug.Log("Time: " + timeToEnd + " s");
         if (timeToEnd <= 0)
         {
             timeToEnd = 0;
@@ -87,10 +108,24 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+
+        if(timeToEnd < 20 && !lessTime)
+        {
+            LessTimeOn();
+            lessTime = true;
+        }
+
+        if(timeToEnd > 20 && lessTime)
+        {
+            LessTimeOff();
+            lessTime = false;
+        }
     }
 
     void PauseGame()
     {
+        musicManager.OnPauseGame();
+        PlayClip(pauseClip);
         Debug.Log("Pause Game");
         Time.timeScale = 0f;
         gamePaused = true;
@@ -98,9 +133,21 @@ public class GameManager : MonoBehaviour
 
     void ResumeGame()
     {
+        musicManager.OnResumeGame();
+        PlayClip(resumeClip);
         Debug.Log("Resume Game");
         Time.timeScale = 1f;
         gamePaused = false;
+    }
+
+    public void LessTimeOn()
+    {
+        musicManager.PitchThis(1.58f);
+    }
+
+    public void LessTimeOff()
+    {
+        musicManager.PitchThis(1f);
     }
 
     void PauseCheck()
@@ -123,10 +170,12 @@ public class GameManager : MonoBehaviour
         CancelInvoke("Stopper");
         if (win)
         {
+            PlayClip(winClip);
             Debug.Log("You Win!!! Reload?");
         }
         else
         {
+            PlayClip(loseClip);
             Debug.Log("You Lose!!! Reload?");
         }
     }

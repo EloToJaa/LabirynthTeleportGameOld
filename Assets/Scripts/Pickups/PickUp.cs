@@ -6,6 +6,8 @@ public class PickUp : MonoBehaviour
 {
     public int rotationX, rotationY, rotationZ;
 
+    public AudioClip pickClip;
+
     void Update()
     {
         Rotation();
@@ -13,6 +15,7 @@ public class PickUp : MonoBehaviour
 
     public virtual void Picked()
     {
+        GameManager.gameManager.PlayClip(pickClip);
         Debug.Log("Podnioslem");
         Destroy(this.gameObject);
     }

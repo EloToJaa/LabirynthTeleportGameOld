@@ -10,9 +10,16 @@ public class Lock : MonoBehaviour
     bool locked = false;
     Animator key;
 
+    public Material red;
+    public Material green;
+    public Material gold;
+
+    public Renderer myLock;
+
     private void Start()
     {
         key = GetComponent<Animator>();
+        SetMyColor();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,5 +78,21 @@ public class Lock : MonoBehaviour
         }
         Debug.Log("Nie mo¿esz otworzyæ drzwi");
         return false;
+    }
+
+    void SetMyColor()
+    {
+        switch (myColor)
+        {
+            case KeyColor.Red:
+                myLock.material = red;
+                break;
+            case KeyColor.Green:
+                myLock.material = green;
+                break;
+            case KeyColor.Gold:
+                myLock.material = gold;
+                break;
+        }
     }
 }
