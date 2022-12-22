@@ -16,6 +16,8 @@ public class Lock : MonoBehaviour
 
     public Renderer myLock;
 
+    public AudioClip openClip;
+
     private void Start()
     {
         key = GetComponent<Animator>();
@@ -36,12 +38,17 @@ public class Lock : MonoBehaviour
         if (other.tag == "Player")
         {
             iCanOpen = false;
-            Debug.Log("You can not use this Lock");
+            GameManager.gameManager.SetUseInfo("");
         }
     }
 
     private void Update()
     {
+        if(iCanOpen && !locked)
+        {
+            GameManager.gameManager.SetUseInfo("Press E to open lock");
+        }
+
         if(Input.GetKeyDown(KeyCode.E) && iCanOpen && !locked)
         {
             key.SetBool("useKey", CheckTheKey());
@@ -61,22 +68,27 @@ public class Lock : MonoBehaviour
         if(GameManager.gameManager.redKey > 0 && myColor == KeyColor.Red)
         {
             GameManager.gameManager.redKey--;
+            GameManager.gameManager.PlayClip(openClip);
+            GameManager.gameManager.redKeyText.text = GameManager.gameManager.redKey.ToString();
             locked = true;
             return true;
         }
         if (GameManager.gameManager.greenKey > 0 && myColor == KeyColor.Green)
         {
             GameManager.gameManager.greenKey--;
+            GameManager.gameManager.PlayClip(openClip);
+            GameManager.gameManager.greenKeyText.text = GameManager.gameManager.greenKey.ToString();
             locked = true;
             return true;
         }
         if (GameManager.gameManager.goldKey > 0 && myColor == KeyColor.Gold)
         {
             GameManager.gameManager.goldKey--;
+            GameManager.gameManager.PlayClip(openClip);
+            GameManager.gameManager.goldKeyText.text = GameManager.gameManager.goldKey.ToString();
             locked = true;
             return true;
         }
-        Debug.Log("Nie mo¿esz otworzyæ drzwi");
         return false;
     }
 

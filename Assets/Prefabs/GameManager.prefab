@@ -54,6 +54,16 @@ MonoBehaviour:
   winClip: {fileID: 0}
   loseClip: {fileID: 0}
   musicManager: {fileID: 0}
+  timeText: {fileID: 0}
+  goldKeyText: {fileID: 0}
+  redKeyText: {fileID: 0}
+  greenKeyText: {fileID: 0}
+  crystalText: {fileID: 0}
+  snowFlake: {fileID: 0}
+  infoPanel: {fileID: 0}
+  pauseEnd: {fileID: 0}
+  reloadInfo: {fileID: 0}
+  useInfo: {fileID: 0}
 --- !u!82 &1567722568
 AudioSource:
   m_ObjectHideFlags: 0

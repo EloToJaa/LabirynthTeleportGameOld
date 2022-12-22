@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationX: 0
   rotationY: 0
-  rotationZ: 2
+  rotationZ: 1
   pickClip: {fileID: 0}
   points: 5
 --- !u!136 &164557415
