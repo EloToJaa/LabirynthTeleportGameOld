@@ -42,37 +42,37 @@ public class LevelGenerator : MonoBehaviour
         ColorTheChildren();
     }
 
+    private void SetRandomMaterial(Transform gameObject)
+    {
+        if (gameObject.tag == "Wall")
+        {
+            if (Random.Range(1, 100) % 3 == 0)
+            {
+                gameObject.gameObject.GetComponent<Renderer>().material = material02;
+            }
+            else
+            {
+                gameObject.gameObject.GetComponent<Renderer>().material = material01;
+            }
+        }
+    }
+
     public void ColorTheChildren()
     {
         foreach(Transform child in transform)
         {
-            if(child.tag == "Wall")
+            SetRandomMaterial(child);
+
+            if (child.tag == "Wall")
             {
-                if(Random.Range(1, 100) % 3 == 0)
-                {
-                    child.gameObject.GetComponent<Renderer>().material = material02;
-                }
-                else
-                {
-                    child.gameObject.GetComponent<Renderer>().material = material01;
-                }
+                child.transform.position = new Vector3(child.transform.position.x, 2.5f, child.transform.position.z);
             }
 
-            if(child.childCount > 0)
+            if (child.childCount > 0)
             {
                 foreach(Transform grandchild in child.transform)
                 {
-                    if (child.tag == "Wall")
-                    {
-                        if (Random.Range(1, 100) % 3 == 0)
-                        {
-                            grandchild.gameObject.GetComponent<Renderer>().material = material02;
-                        }
-                        else
-                        {
-                            grandchild.gameObject.GetComponent<Renderer>().material = material01;
-                        }
-                    }
+                    SetRandomMaterial(grandchild);
                 }
             }
         }

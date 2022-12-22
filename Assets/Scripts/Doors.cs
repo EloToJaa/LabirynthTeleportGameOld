@@ -12,8 +12,15 @@ public class Doors : MonoBehaviour
 
     private void Start()
     {
-        door.position = closePosition.position;
-        open = false;
+        if (open)
+        {
+            door.position = openPosition.position;
+        }
+        else
+        {
+            door.position = closePosition.position;
+        }
+        
     }
 
     public void OpenClose()

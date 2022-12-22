@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 12f;
-    Vector3 velocity;
+    [SerializeField] float speed = 6f;
     CharacterController characterController;
     public Transform groundCheck;
     public LayerMask groundMask;
@@ -36,13 +35,13 @@ public class PlayerController : MonoBehaviour
             switch(terrainType)
             {
                 default:
-                    speed = 12;
+                    speed = 6f;
                     break;
                 case "Low":
-                    speed = 3;
+                    speed = 3f;
                     break;
                 case "High":
-                    speed = 20;
+                    speed = 12f;
                     break;
             }
         }

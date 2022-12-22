@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 7728827104654157421}
   - component: {fileID: 7728827104654157410}
   - component: {fileID: 7728827104654157411}
+  - component: {fileID: 3038636345529638226}
+  - component: {fileID: 7895132248267487233}
+  - component: {fileID: 4189038609652897915}
   m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
@@ -82,6 +85,56 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3038636345529638226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728827104654157422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3460e4b413d474caf7fa70f6b41417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors: []
+  myColor: 0
+  red: {fileID: 2100000, guid: 866763eff146a144c9e78d75349c5ca5, type: 2}
+  green: {fileID: 2100000, guid: 763eb85bab9125f48af0567e9dcd517f, type: 2}
+  gold: {fileID: 2100000, guid: ed5ab9d4a16a7c74797f2675b0871068, type: 2}
+  myLock: {fileID: 6898993666615431205}
+--- !u!95 &7895132248267487233
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728827104654157422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14d673677a52ec9499e7a96edc6a81d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &4189038609652897915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728827104654157422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 1.5}
 --- !u!1001 &5224091515859160225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,5 +211,10 @@ PrefabInstance:
 --- !u!4 &5761523338599443274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 080036a5eb6357c468eb3cb43ae07ab9, type: 3}
+  m_PrefabInstance: {fileID: 5224091515859160225}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6898993666615431205 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 080036a5eb6357c468eb3cb43ae07ab9, type: 3}
   m_PrefabInstance: {fileID: 5224091515859160225}
   m_PrefabAsset: {fileID: 0}
